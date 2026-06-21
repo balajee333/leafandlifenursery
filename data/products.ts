@@ -424,9 +424,9 @@ export const pots: Pot[] = [
   { id: "ll-iron001d", code: "LL-IRON001", name: "Iron Pot - Design D", category: "iron", image: "/images/pots/pot-071.jpg", variants: [{ size: '3"', price: 120 }] },
   { id: "ll-iron002", code: "LL-IRON002", name: "Iron Pot - Premium", category: "iron", image: "/images/pots/pot-072.jpg", variants: [{ size: '3.5" x 2"', price: 300 }] },
   // ── Metal Stands ──
-  { id: "ll-sta001", code: "LL-STA001", name: "Metal Stand - Round", category: "metal-stands", image: "/images/pots/pot-073.jpg", variants: [{ size: "H 19.5cm, D 21cm", price: 210 }] },
+  { id: "ll-sta001", code: "LL-STA001", name: "Metal Stand - Round Hanger", category: "metal-stands", image: "/images/pots/pot-073.jpg", variants: [{ size: "H 19.5cm, D 21cm", price: 210 }] },
   { id: "ll-sta002", code: "LL-STA002", name: "Metal Stand - Square", category: "metal-stands", image: "/images/pots/pot-074.jpg", variants: [{ size: "L 25cm, W 25cm, H 11.5cm", price: 210 }] },
-  { id: "ll-sta003", code: "LL-STA003", name: "Metal Stand - Tall", category: "metal-stands", image: "/images/pots/pot-073.jpg", variants: [{ size: '24"', price: 210 }] },
-  { id: "ll-sta004", code: "LL-STA004", name: "Metal Stand - Premium Tall", category: "metal-stands", image: "/images/pots/pot-074.jpg", variants: [{ size: '24"', price: 449 }] },
-  { id: "ll-sta005", code: "LL-STA005", name: "Metal Stand - Compact", category: "metal-stands", image: "/images/pots/pot-073.jpg", variants: [{ size: 'Dia 7.8", H 3.8"', price: 129 }] },
+  { id: "ll-sta003", code: "LL-STA003", name: "Metal Stand - Rectangle", category: "metal-stands", image: "/images/stands/rectangular-stand.jpg", variants: [{ size: '24"', price: 210 }] },
+  { id: "ll-sta004", code: "LL-STA004", name: "Metal Stand - Rectangle Premium", category: "metal-stands", image: "/images/stands/rectangular-stand-premium.jpg", variants: [{ size: '24"', price: 449 }] },
+  { id: "ll-sta005", code: "LL-STA005", name: "Metal Stand - Round", category: "metal-stands", image: "/images/stands/round.jpg", variants: [{ size: 'Dia 7.8", H 3.8"', price: 129 }] },
 ];
