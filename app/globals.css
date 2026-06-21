@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-green: #1a3c2a;
+  --color-brand-green-light: #2d5a3f;
+  --color-brand-gold: #c8a84e;
+  --color-brand-gold-light: #d4bc6f;
+  --color-brand-cream: #f8f5ee;
+  --color-brand-cream-dark: #f0ebe0;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-brand-cream);
+  color: #1a1a1a;
+  font-family: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
