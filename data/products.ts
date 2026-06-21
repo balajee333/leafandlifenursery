@@ -84,7 +84,7 @@ export const plants: Plant[] = [
   {
     id: "anthurium-red",
     name: "Anthurium Red",
-    category: "balcony",
+    category: "flowering",
     image: "/images/plants/anthurium-red.jpg",
     price: null,
   },
@@ -112,7 +112,7 @@ export const plants: Plant[] = [
   {
     id: "table-palm",
     name: "Table Palm",
-    category: "balcony",
+    category: "indoor",
     image: "/images/plants/table-palm.jpg",
     price: null,
   },
@@ -168,21 +168,21 @@ export const plants: Plant[] = [
   {
     id: "areca-palm",
     name: "Areca Palm",
-    category: "balcony",
+    category: "indoor",
     image: "/images/plants/areca-palm.jpg",
     price: null,
   },
   {
     id: "bird-of-paradise",
     name: "Bird of Paradise",
-    category: "balcony",
+    category: "indoor",
     image: "/images/plants/bird-of-paradise.jpg",
     price: null,
   },
   {
     id: "thulasi",
     name: "Thulasi",
-    category: "flowering",
+    category: "balcony",
     image: "/images/plants/thulasi.jpg",
     price: null,
   },
