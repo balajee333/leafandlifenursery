@@ -337,7 +337,6 @@ export const pots: Pot[] = [
   { id: "ll-cer003", code: "LL-CER003", name: "Ceramic Pot", category: "ceramic", image: "/images/pots/pot-023.jpg", variants: [{ size: '4"', price: 299 }, { size: '5"', price: 499 }, { size: '6"', price: 699 }] },
   { id: "ll-cer004", code: "LL-CER004", name: "Ceramic Pot", category: "ceramic", image: "/images/pots/pot-024.jpg", variants: [{ size: '5"', price: 399 }] },
   { id: "ll-cer005", code: "LL-CER005", name: "Ceramic Pot", category: "ceramic", image: "/images/pots/pot-025.jpg", variants: [{ size: '5"', price: 349 }] },
-  { id: "ll-cer006", code: "LL-CER006", name: "Ceramic Pot", category: "ceramic", image: "/images/pots/pot-026.jpg", variants: [{ size: '8"', price: 899 }] },
   { id: "ll-cer007", code: "LL-CER007", name: "Ceramic Pot", category: "ceramic", image: "/images/pots/pot-027.jpg", variants: [{ size: '6"', price: 499 }, { size: '7"', price: 699 }, { size: '8"', price: 799 }] },
   { id: "ll-cer008", code: "LL-CER008", name: "Ceramic Pot", category: "ceramic", image: "/images/pots/pot-028.jpg", variants: [{ size: '7"', price: 750 }, { size: '8"', price: 950 }] },
   { id: "ll-cer009", code: "LL-CER009", name: "Ceramic Pot", category: "ceramic", image: "/images/pots/pot-029.jpg", variants: [{ size: '7"', price: 750 }] },
