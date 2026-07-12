@@ -125,9 +125,22 @@ export default function ProductCard({
           <p className="mt-1 text-xs text-gray-400">{(item as Pot).code}</p>
         )}
 
-        <p className="mt-2 text-base font-bold text-brand-gold">
-          {getPriceDisplay(item)}
-        </p>
+        {isPot && pot?.category === "designer" && selectedVariant ? (
+          <div className="mt-2 flex items-baseline gap-3">
+            {selectedVariant.compareAtPrice ? (
+              <span className="text-sm text-gray-500 line-through">
+                {formatPrice(selectedVariant.compareAtPrice)}
+              </span>
+            ) : null}
+            <span className="text-base font-bold text-brand-gold">
+              {selectedVariant.price !== null ? formatPrice(selectedVariant.price) : "Contact for price"}
+            </span>
+          </div>
+        ) : (
+          <p className="mt-2 text-base font-bold text-brand-gold">
+            {getPriceDisplay(item)}
+          </p>
+        )}
 
         {pot && pot.colors && pot.colors.length > 0 && (
           <div className="mt-3">

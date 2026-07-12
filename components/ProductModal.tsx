@@ -115,16 +115,29 @@ export default function ProductModal({ item, onClose }: ProductModalProps) {
                   <tbody>
                     {pot.variants.map((v: PotVariant, i: number) => (
                       <tr
-                        key={v.size}
-                        className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
-                      >
-                        <td className="px-4 py-2">{v.size}</td>
-                        <td className="px-4 py-2 text-right font-semibold text-brand-gold">
-                          {v.price !== null
-                            ? formatPrice(v.price)
-                            : "Contact us"}
-                        </td>
-                      </tr>
+                          key={v.size}
+                          className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                        >
+                          <td className="px-4 py-2">{v.size}</td>
+                          <td className="px-4 py-2 text-right font-semibold text-brand-gold">
+                            {v.price !== null ? (
+                              v.compareAtPrice ? (
+                                <div className="flex items-baseline justify-end gap-3">
+                                  <span className="text-sm text-gray-500 line-through">
+                                    {formatPrice(v.compareAtPrice)}
+                                  </span>
+                                  <span className="font-semibold text-brand-gold">
+                                    {formatPrice(v.price)}
+                                  </span>
+                                </div>
+                              ) : (
+                                formatPrice(v.price)
+                              )
+                            ) : (
+                              "Contact us"
+                            )}
+                          </td>
+                        </tr>
                     ))}
                   </tbody>
                 </table>

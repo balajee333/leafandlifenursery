@@ -55,6 +55,18 @@ export default function Header() {
           >
             Pots & Planters
           </Link>
+          <Link
+            href="/designer-pots"
+            className="text-sm font-medium text-white/90 hover:text-brand-gold transition-colors"
+          >
+            Designer Pots
+          </Link>
+          <Link
+            href="/metal-stands"
+            className="text-sm font-medium text-white/90 hover:text-brand-gold transition-colors"
+          >
+            Metal Stands
+          </Link>
           <button
             type="button"
             onClick={handleOpenCart}
@@ -135,6 +147,20 @@ export default function Header() {
             className="block py-3 text-sm font-medium text-white/90 hover:text-brand-gold"
           >
             Pots & Planters
+          </Link>
+          <Link
+            href="/designer-pots"
+            onClick={() => setMenuOpen(false)}
+            className="block py-3 text-sm font-medium text-white/90 hover:text-brand-gold"
+          >
+            Designer Pots
+          </Link>
+          <Link
+            href="/metal-stands"
+            onClick={() => setMenuOpen(false)}
+            className="block py-3 text-sm font-medium text-white/90 hover:text-brand-gold"
+          >
+            Metal Stands
           </Link>
           <button
             type="button"

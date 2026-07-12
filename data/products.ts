@@ -4,7 +4,8 @@ export type PotCategory =
   | "ceramic"
   | "roto-moulded"
   | "iron"
-  | "metal-stands";
+  | "metal-stands"
+  | "designer";
 
 export interface Plant {
   id: string;
@@ -85,6 +86,7 @@ export function getColorName(hex: string): string {
 export interface PotVariant {
   size: string;
   price: number | null;
+  compareAtPrice?: number | null;
 }
 
 export interface Pot {
@@ -111,6 +113,7 @@ export const POT_CATEGORIES: { value: PotCategory; label: string }[] = [
   { value: "roto-moulded", label: "Roto Moulded" },
   { value: "iron", label: "Iron" },
   { value: "metal-stands", label: "Metal Stands" },
+  { value: "designer", label: "Designer Pots" },
 ];
 
 export const plants: Plant[] = [
@@ -506,9 +509,16 @@ export const pots: Pot[] = [
   { id: "ll-iron001d", code: "LL-IRON001", name: "Iron Pot - Design D", category: "iron", image: "/images/pots/pot-071.jpg", variants: [{ size: '3"', price: 120 }], colors: [{ hex: "#000000" }] },
   { id: "ll-iron002", code: "LL-IRON002", name: "Iron Pot - Premium", category: "iron", image: "/images/pots/pot-072.jpg", variants: [{ size: '3.5" x 2"', price: 300 }], colors: [{ hex: "#b0560a" }] },
   // ── Metal Stands ──
-  { id: "ll-sta001", code: "LL-STA001", name: "Metal Stand - Round Hanger", category: "metal-stands", image: "/images/pots/pot-073.jpg", variants: [{ size: "H 19.5cm, D 21cm", price: 210 }], colors: [{ hex: "#000000" }] },
-  { id: "ll-sta002", code: "LL-STA002", name: "Metal Stand - Square", category: "metal-stands", image: "/images/pots/pot-074.jpg", variants: [{ size: "L 25cm, W 25cm, H 11.5cm", price: 210 }], colors: [{ hex: "#000000" }] },
-  { id: "ll-sta003", code: "LL-STA003", name: "Metal Stand - Rectangle", category: "metal-stands", image: "/images/stands/rectangular-stand.jpg", variants: [{ size: '24"', price: 210 }], colors: [{ hex: "#000000" }] },
-  { id: "ll-sta004", code: "LL-STA004", name: "Metal Stand - Rectangle Premium", category: "metal-stands", image: "/images/stands/rectangular-stand-premium.jpg", variants: [{ size: '24"', price: 449 }], colors: [{ hex: "#000000" }] },
-  { id: "ll-sta005", code: "LL-STA005", name: "Metal Stand - Round", category: "metal-stands", image: "/images/stands/round.jpg", variants: [{ size: 'Dia 7.8", H 3.8"', price: 129 }], colors: [{ hex: "#000000" }] },
+  { id: "ll-sta001", code: "LL-STA001", name: "Metal Stand - Round Hanger", category: "metal-stands", image: "/images/stands/stand-001.jpg", variants: [{ size: "H 19.5cm, D 21cm", price: 210 }] },
+  { id: "ll-sta002", code: "LL-STA002", name: "Metal Stand - Square", category: "metal-stands", image: "/images/stands/stand-002.jpg", variants: [{ size: "L 25cm, W 25cm, H 11.5cm", price: 210 }] },
+  { id: "ll-sta003", code: "LL-STA003", name: "Metal Stand - Rectangle", category: "metal-stands", image: "/images/stands/rectangular-stand.jpg", variants: [{ size: '24"', price: 210 }] },
+  { id: "ll-sta004", code: "LL-STA004", name: "Metal Stand - Rectangle Premium", category: "metal-stands", image: "/images/stands/rectangular-stand-premium.jpg", variants: [{ size: '24"', price: 449 }] },
+  { id: "ll-sta005", code: "LL-STA005", name: "Metal Stand - Round", category: "metal-stands", image: "/images/stands/round.jpg", variants: [{ size: 'Dia 7.8", H 3.8"', price: 129 }] },
+  // ── Designer Pots ──
+  { id: "ll-dsg001", code: "LL-DSG001", name: "Designer Pot - Couple Smiley", category: "designer", image: "/images/pots/designer/designer-smiley-duo.jpg", variants: [{ size: 'Standard', price: 699, compareAtPrice: 1299 }] },
+  { id: "ll-dsg002", code: "LL-DSG002", name: "Designer Pot - Scooter Buddy", category: "designer", image: "/images/pots/designer/designer-scooter-buddy.jpg", variants: [{ size: 'Standard', price: 699, compareAtPrice: 1299 }] },
+  { id: "ll-dsg003", code: "LL-DSG003", name: "Designer Pot - Swing Seat", category: "designer", image: "/images/pots/designer/designer-swing-seat.jpg", variants: [{ size: 'Standard', price: 499, compareAtPrice: 999 }] },
+  { id: "ll-dsg004", code: "LL-DSG004", name: "Designer Pot - Guitarist", category: "designer", image: "/images/pots/designer/designer-guitarist.jpg", variants: [{ size: 'Standard', price: 399, compareAtPrice: 499 }] },
+  { id: "ll-dsg005", code: "LL-DSG005", name: "Designer Pot - Mom & Kid", category: "designer", image: "/images/pots/designer/designer-garden-couple.jpg", variants: [{ size: 'Standard', price: 599, compareAtPrice: 799 }] },
+  { id: "ll-dsg006", code: "LL-DSG006", name: "Designer Pot - Rocking Chair", category: "designer", image: "/images/pots/designer/designer-rocking-chair.jpg", variants: [{ size: 'Standard', price: 599, compareAtPrice: 799 }] },
 ];

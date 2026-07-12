@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { plants } from "@/data/products";
+import { plants, pots } from "@/data/products";
 
 const featured = plants.slice(0, 8);
+const metalStandCount = pots.filter((pot) => pot.category === "metal-stands").length;
+const designerCount = pots.filter((pot) => pot.category === "designer").length;
 
 export default function Home() {
   return (
@@ -41,6 +43,12 @@ export default function Home() {
               >
                 Browse Pots & Planters
               </Link>
+              <Link
+                href="/metal-stands"
+                className="rounded-full border-2 border-white/30 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+              >
+                Browse Metal Stands
+              </Link>
             </div>
           </div>
         </div>
@@ -52,10 +60,10 @@ export default function Home() {
           Our Collections
         </h2>
         <p className="mt-2 text-center text-sm text-gray-500">
-          Premium Plants &bull; Decor &bull; Gifting
+          Premium Plants &bull; Pots & Planters &bull; Metal Stands
         </p>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <div className="mt-10 grid gap-6 sm:grid-cols-3 lg:grid-cols-4">
           <Link
             href="/plants"
             className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow"
@@ -107,6 +115,63 @@ export default function Home() {
               </p>
               <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-gold">
                 Browse 59 pots & planters
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+
+          <Link
+            href="/metal-stands"
+            className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow"
+          >
+            <div className="relative h-64 sm:h-80 overflow-hidden">
+              <Image
+                src="/images/stands/stand-002.jpg"
+                alt="Metal Stands"
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-brand-green">
+                Metal Stands
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">
+                Stylish metal stands for your pots and planters
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-gold">
+                Browse {metalStandCount} stands
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+          <Link
+            href="/designer-pots"
+            className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow"
+          >
+            <div className="relative h-64 sm:h-80 overflow-hidden">
+              <Image
+                src="/images/pots/designer/designer-smiley-duo.jpg"
+                alt="Designer Pots"
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-brand-green">
+                Designer Pots
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">
+                Curated designer pots at a fixed price
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-gold">
+                Browse {designerCount} pots
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

@@ -48,6 +48,16 @@ export default function Footer() {
                   Pots & Planters
                 </Link>
               </li>
+              <li>
+                <Link href="/designer-pots" className="hover:text-brand-gold transition-colors">
+                  Designer Pots
+                </Link>
+              </li>
+              <li>
+                <Link href="/metal-stands" className="hover:text-brand-gold transition-colors">
+                  Metal Stands
+                </Link>
+              </li>
             </ul>
           </div>
 
