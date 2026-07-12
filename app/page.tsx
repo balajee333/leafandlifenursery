@@ -112,7 +112,7 @@ export default function Home() {
           >
             <div className="relative h-64 sm:h-80 overflow-hidden">
               <Image
-                src="/images/plant-care/watering.jpg"
+                src="/images/plant-care/humidity.jpg"
                 alt="Plant Care"
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
