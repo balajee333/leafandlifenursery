@@ -30,7 +30,7 @@ export default function Home() {
               Premium plants, pots & planters for your home and garden.
               Browse our collection and order directly via WhatsApp.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
               <Link
                 href="/plants"
                 className="rounded-full bg-brand-gold px-8 py-3 text-sm font-semibold text-brand-green hover:bg-brand-gold-light transition-colors"
@@ -38,10 +38,22 @@ export default function Home() {
                 Browse Plants
               </Link>
               <Link
+                href="/plant-care"
+                className="rounded-full border-2 border-white/30 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+              >
+                Browse Plant Care
+              </Link>
+              <Link
                 href="/pots"
                 className="rounded-full border-2 border-white/30 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
               >
                 Browse Pots & Planters
+              </Link>
+              <Link
+                href="/designer-pots"
+                className="rounded-full border-2 border-white/30 px-8 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+              >
+                Browse Designer Pots
               </Link>
               <Link
                 href="/metal-stands"
@@ -54,13 +66,15 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Plant Care moved to /plant-care */}
+
       {/* Categories */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <h2 className="text-center text-2xl font-bold text-brand-green sm:text-3xl">
           Our Collections
         </h2>
         <p className="mt-2 text-center text-sm text-gray-500">
-          Premium Plants &bull; Pots & Planters &bull; Metal Stands
+          Premium Plants &bull; Pots & Planters &bull; Designer Pots &bull; Metal Stands
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-3 lg:grid-cols-4">
@@ -92,6 +106,35 @@ export default function Home() {
               </span>
             </div>
           </Link>
+          <Link
+            href="/plant-care"
+            className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow"
+          >
+            <div className="relative h-64 sm:h-80 overflow-hidden">
+              <Image
+                src="/images/plant-care/watering.jpg"
+                alt="Plant Care"
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-brand-green">
+                Plant Care
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">
+                Care guides & tips
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-gold">
+                Learn how to care for your plants
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+
 
           <Link
             href="/pots"

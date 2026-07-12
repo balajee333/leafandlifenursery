@@ -210,11 +210,29 @@ export default function ProductModal({ item, onClose }: ProductModalProps) {
           )}
 
           {!isPot && (
-            <p className="mt-3 text-xl font-bold text-brand-gold">
-              {(item as Plant).price !== null
-                ? formatPrice((item as Plant).price!)
-                : "Contact for price"}
-            </p>
+            <>
+              {item.actualPrice ? (
+                <div className="mt-3 flex items-baseline gap-3">
+                  <span className="text-sm text-gray-500 line-through">
+                    {formatPrice(item.actualPrice)}
+                  </span>
+                  <span className="text-xl font-bold text-brand-gold">
+                    {item.price !== null ? formatPrice(item.price) : "Contact for price"}
+                  </span>
+                </div>
+              ) : (
+                <p className="mt-3 text-xl font-bold text-brand-gold">
+                  {(item as Plant).price !== null
+                    ? formatPrice((item as Plant).price!)
+                    : "Contact for price"}
+                </p>
+              )}
+              {item.quantity && (
+                <p className="mt-2 text-sm text-gray-500">
+                  Quantity: {item.quantity}
+                </p>
+              )}
+            </>
           )}
 
           <button

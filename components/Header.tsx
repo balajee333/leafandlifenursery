@@ -56,6 +56,12 @@ export default function Header() {
             Pots & Planters
           </Link>
           <Link
+            href="/plant-care"
+            className="text-sm font-medium text-white/90 hover:text-brand-gold transition-colors"
+          >
+            Plant Care
+          </Link>
+          <Link
             href="/designer-pots"
             className="text-sm font-medium text-white/90 hover:text-brand-gold transition-colors"
           >
@@ -161,6 +167,13 @@ export default function Header() {
             className="block py-3 text-sm font-medium text-white/90 hover:text-brand-gold"
           >
             Metal Stands
+          </Link>
+          <Link
+            href="/plant-care"
+            onClick={() => setMenuOpen(false)}
+            className="block py-3 text-sm font-medium text-white/90 hover:text-brand-gold"
+          >
+            Plant Care
           </Link>
           <button
             type="button"

@@ -10,9 +10,11 @@ export type PotCategory =
 export interface Plant {
   id: string;
   name: string;
-  category: PlantCategory;
+  category?: PlantCategory;
   image: string;
   price: number | null;
+  actualPrice?: number | null;
+  quantity?: string;
   description?: string;
 }
 
@@ -305,6 +307,66 @@ export const plants: Plant[] = [
     category: "flowering",
     image: "/images/plants/jasmine.jpg",
     price: null,
+  },
+];
+
+// Plant Care products — kept separate from the main `plants` list
+export const plantCare: Plant[] = [
+  {
+    id: "pc-fertilizing",
+    name: "Magic Spray - Natural Nutrition Spray",
+    image: "/images/plant-care/fertilizing.jpg",
+    price: 175,
+    actualPrice: 185,
+    quantity: "825 ml",
+  },
+  {
+    id: "pc-pruning",
+    name: "Garden Glow - Plant Growth Promoter | Seaweed Extract",
+    image: "/images/plant-care/pruning.jpg",
+    price: 175,
+    actualPrice: 185,
+    quantity: "825 ml",
+  },
+  {
+    id: "pc-repotting",
+    name: "Magic Balls - Granular Plant Growth Promoter",
+    image: "/images/plant-care/repotting.jpg",
+    price: 250,
+    actualPrice: 260,
+    quantity: "500 gms",
+  },
+  {
+    id: "pc-pests",
+    name: "N Care - Plant Protector from Mealybugs - White Fungus - Insects - Mites - Aphids",
+    image: "/images/plant-care/pests.jpg",
+    price: 225,
+    actualPrice: 235,
+    quantity: "825 ml",
+  },
+  {
+    id: "pc-propagation",
+    name: "Organic Booster Concentrated Seaweed Extract",
+    image: "/images/plant-care/propagation.jpg",
+    price: 80,
+    actualPrice: 90,
+    quantity: "30 ml",
+  },
+  {
+    id: "pc-light",
+    name: "Vatika Nemax",
+    image: "/images/plant-care/light-care.jpg",
+    price: 80,
+    actualPrice: 90,
+    quantity: "30 ml",
+  },
+  {
+    id: "pc-humidity",
+    name: "Lucky Bamboo Spray",
+    image: "/images/plant-care/humidity.jpg",
+    price: 110,
+    actualPrice: 120,
+    quantity: "50 ml",
   },
 ];
 

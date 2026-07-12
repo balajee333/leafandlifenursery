@@ -137,9 +137,25 @@ export default function ProductCard({
             </span>
           </div>
         ) : (
-          <p className="mt-2 text-base font-bold text-brand-gold">
-            {getPriceDisplay(item)}
-          </p>
+          <div>
+            {item.actualPrice ? (
+              <div className="mt-2 flex items-baseline gap-3">
+                <span className="text-sm text-gray-500 line-through">
+                  {formatPrice(item.actualPrice)}
+                </span>
+                <span className="text-base font-bold text-brand-gold">
+                  {item.price !== null ? formatPrice(item.price) : "Contact for price"}
+                </span>
+              </div>
+            ) : (
+              <p className="mt-2 text-base font-bold text-brand-gold">
+                {getPriceDisplay(item)}
+              </p>
+            )}
+            {item.quantity && (
+              <p className="mt-1 text-sm text-gray-500">{item.quantity}</p>
+            )}
+          </div>
         )}
 
         {pot && pot.colors && pot.colors.length > 0 && (
