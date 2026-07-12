@@ -47,19 +47,19 @@ export default function Header() {
             href="/plants"
             className="text-sm font-medium text-white/90 hover:text-brand-gold transition-colors"
           >
-            Plants
+            Buy Indoor Plants
           </Link>
           <Link
             href="/pots"
             className="text-sm font-medium text-white/90 hover:text-brand-gold transition-colors"
           >
-            Pots & Planters
+            Garden Pots & Planters
           </Link>
           <Link
             href="/plant-care"
             className="text-sm font-medium text-white/90 hover:text-brand-gold transition-colors"
           >
-            Plant Care
+            Plant Care & Nutrition Products
           </Link>
           <Link
             href="/designer-pots"
@@ -71,7 +71,7 @@ export default function Header() {
             href="/metal-stands"
             className="text-sm font-medium text-white/90 hover:text-brand-gold transition-colors"
           >
-            Metal Stands
+            Metal Plant Stands
           </Link>
           <button
             type="button"
@@ -145,14 +145,14 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="block py-3 text-sm font-medium text-white/90 hover:text-brand-gold"
           >
-            Plants
+            Buy Indoor Plants
           </Link>
           <Link
             href="/pots"
             onClick={() => setMenuOpen(false)}
             className="block py-3 text-sm font-medium text-white/90 hover:text-brand-gold"
           >
-            Pots & Planters
+            Garden Pots & Planters
           </Link>
           <Link
             href="/designer-pots"
@@ -166,14 +166,14 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="block py-3 text-sm font-medium text-white/90 hover:text-brand-gold"
           >
-            Metal Stands
+            Metal Plant Stands
           </Link>
           <Link
             href="/plant-care"
             onClick={() => setMenuOpen(false)}
             className="block py-3 text-sm font-medium text-white/90 hover:text-brand-gold"
           >
-            Plant Care
+            Plant Care & Nutrition Products
           </Link>
           <button
             type="button"

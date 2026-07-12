@@ -40,12 +40,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/plants" className="hover:text-brand-gold transition-colors">
-                  Plant Collections
+                  Buy Indoor Plants
                 </Link>
               </li>
               <li>
                 <Link href="/pots" className="hover:text-brand-gold transition-colors">
-                  Pots & Planters
+                  Garden Pots & Planters
                 </Link>
               </li>
               <li>
@@ -55,7 +55,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/metal-stands" className="hover:text-brand-gold transition-colors">
-                  Metal Stands
+                  Metal Plant Stands
+                </Link>
+              </li>
+              <li>
+                <Link href="/plant-care" className="hover:text-brand-gold transition-colors">
+                  Plant Care & Nutrition Products
                 </Link>
               </li>
             </ul>

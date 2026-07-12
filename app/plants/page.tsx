@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { plants, PLANT_CATEGORIES, type Plant } from "@/data/products";
 import CategoryFilter from "@/components/CategoryFilter";
 import ProductCard from "@/components/ProductCard";
@@ -22,10 +23,13 @@ export default function PlantsPage() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <div className="text-center">
         <h1 className="text-2xl font-bold text-brand-green sm:text-3xl">
-          Plant Collections
+          Buy Indoor Plants in Kelambakkam, Chennai
         </h1>
         <p className="mt-2 text-sm text-gray-500">
           Premium Plants &bull; Indoor &bull; Balcony &bull; Succulents
+        </p>
+        <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-gray-600">
+          Discover a curated nursery collection of indoor plants near Kelambakkam with everything from low-light snake plants to flowering anthuriums. Leaf & Life Nursery makes it easy to buy plants online Chennai, with expert plant care advice, local delivery options, and the best indoor greenery for homes, balconies, offices and gifting.
         </p>
       </div>
 
@@ -58,6 +62,39 @@ export default function PlantsPage() {
           />
         </div>
       </div>
+
+      <section className="mt-10 rounded-3xl border border-brand-green/10 bg-brand-cream p-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-lg font-semibold text-brand-green">
+              Complete Your Indoor Garden
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-gray-600">
+              Pair your new plants with matching pots, planters, and metal stands from our Chennai collection. Browse quality pots designed for indoor plant displays and balcony gardens.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/pots"
+              className="rounded-full border border-brand-green/50 bg-white px-4 py-2 text-sm font-semibold text-brand-green transition hover:bg-brand-green/5"
+            >
+              Browse Pots & Planters
+            </Link>
+            <Link
+              href="/metal-stands"
+              className="rounded-full border border-brand-green/50 bg-white px-4 py-2 text-sm font-semibold text-brand-green transition hover:bg-brand-green/5"
+            >
+              Browse Metal Stand Options
+            </Link>
+            <Link
+              href="/designer-pots"
+              className="rounded-full border border-brand-green/50 bg-white px-4 py-2 text-sm font-semibold text-brand-green transition hover:bg-brand-green/5"
+            >
+              Browse Designer Pots
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {filtered.length === 0 ? (
         <div className="mt-16 text-center text-gray-400">

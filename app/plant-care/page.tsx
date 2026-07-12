@@ -19,10 +19,13 @@ export default function PlantCarePage() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <div className="text-center">
         <h1 className="text-2xl font-bold text-brand-green sm:text-3xl">
-          Plant Care
+          Plant Care & Nutrition Products
         </h1>
         <p className="mt-2 text-sm text-gray-500">
-          Nourish, protect, and grow your home garden with our complete range of plant care essentials.
+          Nourish, protect, and grow your home garden with our range of plant care sprays, organic boosters, and protective solutions.
+        </p>
+        <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-gray-600">
+          Find the best plant care products in Chennai for healthy indoor plants and thriving gardens. Leaf & Life Nursery offers organic plant growth promoters, fertilizer sprays, pest protectors, and nutrient boosters for every plant owner in Kelambakkam. Buy plant care products online with WhatsApp ordering for fast local support.
         </p>
       </div>
 

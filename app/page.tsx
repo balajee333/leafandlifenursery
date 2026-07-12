@@ -26,9 +26,11 @@ export default function Home() {
                 />
               </div>
             </div>
-            <p className="mt-4 max-w-lg text-sm text-white/70 leading-relaxed sm:text-base">
-              Premium plants, pots & planters for your home and garden.
-              Browse our collection and order directly via WhatsApp.
+            <h1 className="mt-4 text-3xl font-bold text-white sm:text-4xl">
+              Premium Plants, Pots & Planters in Kelambakkam, Chennai
+            </h1>
+            <p className="mt-4 max-w-2xl text-sm text-white/70 leading-relaxed sm:text-base">
+              Leaf & Life Nursery offers a curated selection of indoor plants, garden pots, designer ceramic planters, and plant nutrition products. Buy plants online Chennai with local WhatsApp ordering and same-day pickup in Kelambakkam.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
               <Link
@@ -74,7 +76,7 @@ export default function Home() {
           Our Collections
         </h2>
         <p className="mt-2 text-center text-sm text-gray-500">
-          Premium Plants &bull; Pots & Planters &bull; Designer Pots &bull; Metal Stands
+          Buy indoor plants online Chennai, premium garden pots &amp; planters, designer ceramic pots, and metal plant stands for home and office.
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-3 lg:grid-cols-4">
@@ -85,7 +87,7 @@ export default function Home() {
             <div className="relative h-64 sm:h-80 overflow-hidden">
               <Image
                 src="/images/plants/monstera.jpg"
-                alt="Plant Collections"
+                alt="Indoor Plants Collection - Leaf & Life Nursery Chennai"
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
                 className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
@@ -113,7 +115,7 @@ export default function Home() {
             <div className="relative h-64 sm:h-80 overflow-hidden">
               <Image
                 src="/images/plant-care/humidity.jpg"
-                alt="Plant Care"
+                alt="Plant Care and Nutrition Products - Leaf & Life Nursery Chennai"
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
                 className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
@@ -121,13 +123,13 @@ export default function Home() {
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold text-brand-green">
-                Plant Care
+                Plant Care & Nutrition
               </h3>
               <p className="mt-1 text-sm text-gray-500">
-                Care guides & tips
+                Nutrients, sprays, and pest protection
               </p>
               <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-gold">
-                Learn how to care for your plants
+                Explore plant care products
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -143,7 +145,7 @@ export default function Home() {
             <div className="relative h-64 sm:h-80 overflow-hidden">
               <Image
                 src="/images/pots/pot-001.jpg"
-                alt="Pots & Planters"
+                alt="Garden Pots & Planters - Leaf & Life Nursery Chennai"
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
                 className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"

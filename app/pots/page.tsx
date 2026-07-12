@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { pots, POT_CATEGORIES, type Pot } from "@/data/products";
 import CategoryFilter from "@/components/CategoryFilter";
 import ProductCard from "@/components/ProductCard";
@@ -45,11 +46,13 @@ export default function PotsPage() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <div className="text-center">
         <h1 className="text-2xl font-bold text-brand-green sm:text-3xl">
-          Pots & Planters
+          Garden Pots & Planters for Chennai Homes
         </h1>
         <p className="mt-2 text-sm text-gray-500">
-          Plastic &bull; Ceramic &bull; Roto Moulded &bull; Iron &bull; Metal
-          Stands
+          Plastic &bull; Ceramic &bull; Roto Moulded &bull; Iron &bull; Metal Plant Stands
+        </p>
+        <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-gray-600">
+          Shop a premium range of garden pots and planters designed for indoor and outdoor use in Chennai. From designer ceramic pots to sturdy plastic planters and space-saving metal plant stands, Leaf & Life Nursery has the perfect pot for every plant in your home or balcony.
         </p>
       </div>
 
@@ -101,6 +104,33 @@ export default function PotsPage() {
           />
         </div>
       </div>
+
+      <section className="mt-10 rounded-3xl border border-brand-green/10 bg-brand-cream p-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="text-lg font-semibold text-brand-green">
+              Pair Pots with Perfect Plants
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-gray-600">
+              Choose the right plants to showcase in your new planters. Explore our indoor plant collection for low-light, flowering, and balcony-friendly greens in Chennai.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/plants"
+              className="rounded-full border border-brand-green/50 bg-white px-4 py-2 text-sm font-semibold text-brand-green transition hover:bg-brand-green/5"
+            >
+              Browse Indoor Plants
+            </Link>
+            <Link
+              href="/plant-care"
+              className="rounded-full border border-brand-green/50 bg-white px-4 py-2 text-sm font-semibold text-brand-green transition hover:bg-brand-green/5"
+            >
+              Browse Plant Care
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {filtered.length === 0 ? (
         <div className="mt-16 text-center text-gray-400">

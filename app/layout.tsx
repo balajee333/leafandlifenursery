@@ -11,26 +11,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Leaf & Life - Add Life to Your Space",
+  title: "Leaf & Life Nursery | Premium Indoor Plants & Pots in Chennai",
   description:
-    "Premium plants, pots & planters for your home and garden. Browse our collection of indoor plants, succulents, flowering plants, ceramic pots, and designer planters. Kelambakkam, Chennai.",
+    "Leaf & Life Nursery in Kelambakkam, Chennai offers premium indoor plants, garden pots, designer ceramic planters, and plant care products. Buy plants online Chennai and order via WhatsApp for fast local delivery.",
   keywords: [
-    "plants",
-    "pots",
-    "planters",
-    "indoor plants",
-    "nursery",
-    "Chennai",
+    "buy indoor plants",
+    "buy plants online Chennai",
+    "plant nursery near Kelambakkam",
+    "garden pots & planters",
+    "designer ceramic pots",
+    "metal plant stands",
+    "plant care products Chennai",
+    "Leaf & Life Nursery",
     "Kelambakkam",
-    "Leaf & Life",
   ],
   icons: {
     icon: "/logo.png",
   },
   openGraph: {
-    title: "Leaf & Life - Add Life to Your Space",
+    title: "Leaf & Life Nursery | Premium Indoor Plants & Pots in Chennai",
     description:
-      "Premium plants, pots & planters. Browse our collection and order via WhatsApp.",
+      "Leaf & Life Nursery in Kelambakkam offers premium indoor plants, garden pots, designer planters, and plant care essentials. Order online via WhatsApp.",
     type: "website",
   },
 };
