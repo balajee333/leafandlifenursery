@@ -136,6 +136,10 @@ export default function ProductCard({
               {selectedVariant.price !== null ? formatPrice(selectedVariant.price) : "Contact for price"}
             </span>
           </div>
+        ) : isPot ? (
+          <p className="mt-2 text-base font-bold text-brand-gold">
+            {getPriceDisplay(item)}
+          </p>
         ) : (
           <div>
             {item.actualPrice ? (
