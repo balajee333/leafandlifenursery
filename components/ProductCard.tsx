@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useCart } from "@/components/CartContext";
-import type { Plant, Pot, PotVariant } from "@/data/products";
+import type { Plant, Pot, PotVariant, PotColor } from "@/data/products";
+import { getColorName } from "@/data/products";
 
 function formatPrice(price: number): string {
   return `₹${price.toLocaleString("en-IN")}`;
@@ -29,21 +30,62 @@ function getPriceDisplay(
 interface ProductCardProps {
   item: Plant | Pot;
   onClick?: () => void;
+  isActiveWarning?: boolean;
+  onInvalidColorSelection?: () => void;
+  onColorSelected?: () => void;
 }
 
-export default function ProductCard({ item, onClick }: ProductCardProps) {
+export default function ProductCard({
+  item,
+  onClick,
+  isActiveWarning = false,
+  onInvalidColorSelection,
+  onColorSelected,
+}: ProductCardProps) {
   const { addItem } = useCart();
   const isPot = "variants" in item;
   const pot = isPot ? (item as Pot) : null;
   const [selectedSize, setSelectedSize] = useState(
     pot?.variants[0]?.size ?? ""
   );
+  const [selectedColor, setSelectedColor] = useState<PotColor | null>(
+    pot?.colors?.[0] ?? null
+  );
+  const [warningMessage, setWarningMessage] = useState("");
+
+  const handleColorSelect = (color: PotColor) => {
+    setSelectedColor(color);
+    if (onColorSelected) {
+      onColorSelected();
+    } else {
+      setWarningMessage("");
+    }
+  };
 
   const selectedVariant =
     pot?.variants.find((variant) => variant.size === selectedSize) ??
     pot?.variants[0];
 
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
+
+  const warningText = isActiveWarning
+    ? "Please choose a color before adding to cart."
+    : warningMessage;
+
   const handleAddToCart = () => {
+    if (pot?.colors && pot.colors.length > 1 && !selectedColor) {
+      if (onInvalidColorSelection) {
+        onInvalidColorSelection();
+      } else {
+        setWarningMessage("Please choose a color before adding to cart.");
+      }
+      return;
+    }
+
+    if (!onInvalidColorSelection) {
+      setWarningMessage("");
+    }
+    setIsAddingToCart(true);
     addItem({
       productId: item.id,
       name: item.name,
@@ -51,9 +93,12 @@ export default function ProductCard({ item, onClick }: ProductCardProps) {
       code: pot?.code,
       image: item.image,
       variantSize: selectedVariant?.size,
+      variantColor: selectedColor?.hex ? getColorName(selectedColor.hex) : undefined,
+      variantColorHex: selectedColor?.hex,
       unitPrice:
         selectedVariant?.price ?? (!isPot ? (item as Plant).price : null),
     });
+    setTimeout(() => setIsAddingToCart(false), 600);
   };
 
   return (
@@ -84,6 +129,53 @@ export default function ProductCard({ item, onClick }: ProductCardProps) {
           {getPriceDisplay(item)}
         </p>
 
+        {pot && pot.colors && pot.colors.length > 0 && (
+          <div className="mt-3">
+            <label className="mb-2 block text-xs font-medium text-gray-500">
+              Color
+            </label>
+            <div className="flex flex-wrap gap-2">
+              {pot.colors.map((color: PotColor) => (
+                <button
+                  key={color.hex}
+                  type="button"
+                  onClick={() => handleColorSelect(color)}
+                  className={`relative w-8 h-8 rounded-full transition-all duration-200 cursor-pointer z-10 ${
+                    color.hex === "#FFFFFF" ? "border-2 border-gray-300" : ""
+                  } ${
+                    selectedColor?.hex === color.hex
+                      ? "ring-2 ring-brand-green ring-offset-1"
+                      : "hover:scale-110"
+                  }`}
+                  style={{ backgroundColor: color.hex }}
+                  title={getColorName(color.hex)}
+                >
+                  {selectedColor?.hex === color.hex && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg
+                        className={`w-4 h-4 drop-shadow-md ${
+                          color.hex === "#FFFFFF" ? "text-brand-green" : "text-white"
+                        }`}
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+        {warningText && (
+          <p className="mt-2 text-sm text-red-600">{warningText}</p>
+        )}
+
         {pot && pot.variants.length > 0 && (
           <div className="mt-3">
             <label
@@ -113,7 +205,12 @@ export default function ProductCard({ item, onClick }: ProductCardProps) {
         <button
           type="button"
           onClick={handleAddToCart}
-          className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-brand-green py-2.5 text-sm font-medium text-white hover:bg-brand-green-light transition-colors"
+          disabled={isAddingToCart}
+          className={`mt-3 flex w-full items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-medium text-white transition-all duration-200 ${
+            isAddingToCart
+              ? "bg-brand-green scale-95 opacity-75"
+              : "bg-brand-green hover:bg-opacity-90 active:scale-95"
+          }`}
         >
           <svg
             className="h-4 w-4"
@@ -125,10 +222,14 @@ export default function ProductCard({ item, onClick }: ProductCardProps) {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M12 4v16m8-8H4"
+              d={
+                isAddingToCart
+                  ? "M5 13l4 4L19 7"
+                  : "M12 4v16m8-8H4"
+              }
             />
           </svg>
-          Add to Cart
+          {isAddingToCart ? "Added to Cart" : "Add to Cart"}
         </button>
       </div>
     </div>

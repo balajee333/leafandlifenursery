@@ -18,6 +18,8 @@ export interface CartItem {
   code?: string;
   image: string;
   variantSize?: string;
+  variantColor?: string;
+  variantColorHex?: string;
   unitPrice: number | null;
   quantity: number;
 }
@@ -29,6 +31,8 @@ interface AddToCartInput {
   code?: string;
   image: string;
   variantSize?: string;
+  variantColor?: string;
+  variantColorHex?: string;
   unitPrice: number | null;
 }
 
@@ -49,8 +53,12 @@ interface CartContextValue {
 const CART_STORAGE_KEY = "leaf-and-life-cart";
 const CartContext = createContext<CartContextValue | null>(null);
 
-function makeCartKey(item: Pick<AddToCartInput, "productId" | "variantSize">) {
-  return [item.productId, item.variantSize ?? "default"].join("__");
+function makeCartKey(item: Pick<AddToCartInput, "productId" | "variantSize" | "variantColorHex" | "variantColor">) {
+  return [
+    item.productId,
+    item.variantSize ?? "default",
+    item.variantColorHex ?? item.variantColor ?? "default",
+  ].join("__");
 }
 
 function readStoredCart(): CartItem[] {

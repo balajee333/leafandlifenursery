@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useCart } from "@/components/CartContext";
-import type { Plant, Pot, PotVariant } from "@/data/products";
+import type { Plant, Pot, PotVariant, PotColor } from "@/data/products";
+import { getColorName } from "@/data/products";
 
 function formatPrice(price: number): string {
   return `₹${price.toLocaleString("en-IN")}`;
@@ -21,6 +22,9 @@ export default function ProductModal({ item, onClose }: ProductModalProps) {
   const [selectedSize, setSelectedSize] = useState(
     pot?.variants[0]?.size ?? ""
   );
+  const [selectedColor, setSelectedColor] = useState<PotColor | null>(
+    pot?.colors?.[0] ?? null
+  );
 
   const selectedVariant =
     pot?.variants.find((variant) => variant.size === selectedSize) ??
@@ -34,6 +38,10 @@ export default function ProductModal({ item, onClose }: ProductModalProps) {
       code: pot?.code,
       image: item.image,
       variantSize: selectedVariant?.size,
+      variantColor: selectedColor?.hex
+        ? getColorName(selectedColor.hex)
+        : undefined,
+      variantColorHex: selectedColor?.hex,
       unitPrice:
         selectedVariant?.price ?? (!isPot ? (item as Plant).price : null),
     });
@@ -121,6 +129,49 @@ export default function ProductModal({ item, onClose }: ProductModalProps) {
                   </tbody>
                 </table>
               </div>
+              {pot.colors && pot.colors.length > 0 && (
+                <div className="mt-4">
+                  <label className="mb-2 block text-sm font-semibold text-gray-600">
+                    Select color for cart
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {pot.colors.map((color: PotColor) => (
+                      <button
+                        key={color.hex}
+                        type="button"
+                        onClick={() => setSelectedColor(color)}
+                        className={`relative w-9 h-9 rounded-full transition-all duration-200 ${
+                          selectedColor?.hex === color.hex
+                            ? "ring-2 ring-brand-green ring-offset-1"
+                            : "hover:scale-110"
+                        } ${color.hex === "#FFFFFF" ? "border border-gray-300" : ""}`}
+                        style={{ backgroundColor: color.hex }}
+                        title={getColorName(color.hex)}
+                      >
+                        {selectedColor?.hex === color.hex && (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <svg
+                              className={`w-4 h-4 drop-shadow-md ${
+                                color.hex === "#FFFFFF"
+                                  ? "text-brand-green"
+                                  : "text-white"
+                              }`}
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
               <label
                 htmlFor={`modal-size-${item.id}`}
                 className="mb-1 mt-4 block text-sm font-semibold text-gray-600"

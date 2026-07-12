@@ -11,6 +11,7 @@ export default function PotsPage() {
   const [selected, setSelected] = useState<Pot | null>(null);
   const [search, setSearch] = useState("");
   const [size, setSize] = useState<string | null>(null);
+  const [activeInvalidSelectionId, setActiveInvalidSelectionId] = useState<string | null>(null);
 
   const availablePots = category
     ? pots.filter((pot) => pot.category === category)
@@ -121,6 +122,9 @@ export default function PotsPage() {
               key={pot.id}
               item={pot}
               onClick={() => setSelected(pot)}
+              isActiveWarning={activeInvalidSelectionId === pot.id}
+              onInvalidColorSelection={() => setActiveInvalidSelectionId(pot.id)}
+              onColorSelected={() => setActiveInvalidSelectionId(null)}
             />
           ))}
         </div>

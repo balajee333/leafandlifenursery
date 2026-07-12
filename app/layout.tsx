@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     "Kelambakkam",
     "Leaf & Life",
   ],
+  icons: {
+    icon: "/logo.png",
+  },
   openGraph: {
     title: "Leaf & Life - Add Life to Your Space",
     description:

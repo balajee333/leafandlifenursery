@@ -11,7 +11,7 @@ function formatPrice(price: number): string {
 }
 
 function getItemLabel(item: CartItem): string {
-  const details = [item.code, item.variantSize].filter(Boolean).join(", ");
+  const details = [item.code, item.variantSize, item.variantColor].filter(Boolean).join(", ");
   return details ? `${item.name} (${details})` : item.name;
 }
 
@@ -189,11 +189,19 @@ export default function CartDrawer() {
                               <h3 className="truncate text-sm font-semibold text-brand-green">
                                 {item.name}
                               </h3>
-                              <p className="mt-0.5 text-xs text-gray-500">
-                                {[item.code, item.variantSize]
-                                  .filter(Boolean)
-                                  .join(" | ") || item.type}
-                              </p>
+                              <div className="mt-0.5 flex items-center gap-2 text-xs text-gray-500">
+                                {item.variantColorHex && (
+                                  <span
+                                    className="inline-flex h-2.5 w-2.5 rounded-full border border-gray-200"
+                                    style={{ backgroundColor: item.variantColorHex }}
+                                  />
+                                )}
+                                <span>
+                                  {[item.code, item.variantSize, item.variantColor]
+                                    .filter(Boolean)
+                                    .join(" | ") || item.type}
+                                </span>
+                              </div>
                             </div>
                             <button
                               type="button"
