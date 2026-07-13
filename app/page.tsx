@@ -144,7 +144,7 @@ export default function Home() {
           >
             <div className="relative h-64 sm:h-80 overflow-hidden">
               <Image
-                src="/images/pots/pot-001.jpg"
+                src="/images/pots/pot-028.jpg"
                 alt="Garden Pots & Planters - Leaf & Life Nursery Chennai"
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
