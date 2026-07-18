@@ -11,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://leafandlifenursery.com"),
   title: "Leaf & Life Nursery | Premium Indoor Plants & Pots in Chennai",
   description:
     "Leaf & Life Nursery in Kelambakkam, Chennai offers premium indoor plants, garden pots, designer ceramic planters, and plant care products. Buy plants online Chennai and order via WhatsApp for fast local delivery.",

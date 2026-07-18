@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/components/CartContext";
 import type { Plant, Pot, PotVariant, PotColor } from "@/data/products";
-import { getColorName } from "@/data/products";
+import { getColorName, getPotSlug } from "@/data/products";
+import ProductJsonLd from "@/components/ProductJsonLd";
 
 function formatPrice(price: number): string {
   return `₹${price.toLocaleString("en-IN")}`;
@@ -30,6 +32,7 @@ function getPriceDisplay(
 interface ProductCardProps {
   item: Plant | Pot;
   onClick?: () => void;
+  includeSchema?: boolean;
   isActiveWarning?: boolean;
   onInvalidColorSelection?: () => void;
   onColorSelected?: () => void;
@@ -38,6 +41,7 @@ interface ProductCardProps {
 export default function ProductCard({
   item,
   onClick,
+  includeSchema = true,
   isActiveWarning = false,
   onInvalidColorSelection,
   onColorSelected,
@@ -45,6 +49,7 @@ export default function ProductCard({
   const { addItem } = useCart();
   const isPot = "variants" in item;
   const pot = isPot ? (item as Pot) : null;
+  const productHref = pot ? `/pots/${getPotSlug(pot)}` : undefined;
   const [selectedSize, setSelectedSize] = useState(
     pot?.variants[0]?.size ?? ""
   );
@@ -103,10 +108,23 @@ export default function ProductCard({
 
   return (
     <div className="group overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-green/5">
-      <div
-        className="relative aspect-square cursor-pointer overflow-hidden bg-white"
-        onClick={onClick}
-      >
+      {pot && includeSchema && <ProductJsonLd product={pot} />}
+      {productHref ? (
+        <Link
+          href={productHref}
+          className="relative block aspect-square overflow-hidden bg-white"
+          aria-label={`View details for ${item.name}`}
+        >
+          <Image
+            src={item.image}
+            alt={`${item.name} - Garden Pot | Leaf & Life Nursery Chennai`}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+          />
+        </Link>
+      ) : (
+        <div className="relative aspect-square cursor-pointer overflow-hidden bg-white" onClick={onClick}>
         <Image
           src={item.image}
           alt={`${item.name} - ${isPot ? "Garden Pot" : "Indoor Plant"} | Leaf & Life Nursery Chennai`}
@@ -114,12 +132,23 @@ export default function ProductCard({
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
         />
-      </div>
+        </div>
+      )}
 
       <div className="p-4">
-        <h3 className="font-semibold text-brand-green text-sm sm:text-base leading-tight">
-          {item.name}
-        </h3>
+        {productHref ? (
+          <Link
+            href={productHref}
+            title={item.name}
+            className="block truncate font-semibold text-brand-green text-sm sm:text-base leading-tight"
+          >
+            {item.name}
+          </Link>
+        ) : (
+          <h3 title={item.name} className="truncate font-semibold text-brand-green text-sm sm:text-base leading-tight">
+            {item.name}
+          </h3>
+        )}
 
         {isPot && (
           <p className="mt-1 text-xs text-gray-400">{(item as Pot).code}</p>

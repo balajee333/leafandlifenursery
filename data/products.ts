@@ -102,6 +102,30 @@ export interface Pot {
   description?: string;
 }
 
+/** Converts a product name into the readable portion of its public URL. */
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+/**
+ * Returns a stable, descriptive URL slug. A product ID is appended only where
+ * two products share the same name, preventing ambiguous detail-page URLs.
+ */
+export function getPotSlug(pot: Pot): string {
+  const baseSlug = slugify(pot.name);
+  return pots.filter((candidate) => slugify(candidate.name) === baseSlug).length > 1
+    ? `${baseSlug}-${pot.id}`
+    : baseSlug;
+}
+
+export function getPotBySlug(slug: string): Pot | undefined {
+  return pots.find((pot) => getPotSlug(pot) === slug);
+}
+
 export const PLANT_CATEGORIES: { value: PlantCategory; label: string }[] = [
   { value: "indoor", label: "Indoor" },
   { value: "balcony", label: "Balcony" },
