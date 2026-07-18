@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useCart } from "@/components/CartContext";
 import type { Plant, Pot, PotVariant, PotColor } from "@/data/products";
 import { getColorName, getPotSlug } from "@/data/products";
-import ProductJsonLd from "@/components/ProductJsonLd";
 
 function formatPrice(price: number): string {
   return `₹${price.toLocaleString("en-IN")}`;
@@ -32,7 +31,6 @@ function getPriceDisplay(
 interface ProductCardProps {
   item: Plant | Pot;
   onClick?: () => void;
-  includeSchema?: boolean;
   isActiveWarning?: boolean;
   onInvalidColorSelection?: () => void;
   onColorSelected?: () => void;
@@ -41,7 +39,6 @@ interface ProductCardProps {
 export default function ProductCard({
   item,
   onClick,
-  includeSchema = true,
   isActiveWarning = false,
   onInvalidColorSelection,
   onColorSelected,
@@ -108,7 +105,6 @@ export default function ProductCard({
 
   return (
     <div className="group overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-green/5">
-      {pot && includeSchema && <ProductJsonLd product={pot} />}
       {productHref ? (
         <Link
           href={productHref}

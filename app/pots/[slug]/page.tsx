@@ -61,12 +61,12 @@ export default async function PotDetailPage({ params }: Props) {
           <p className="mt-5 leading-relaxed text-gray-600">{pot.description ?? `${pot.name} is available from Leaf & Life Nursery in a selection of sizes${pot.colors?.length ? " and colours" : ""}.`}</p>
           <h2 className="mt-7 text-lg font-semibold text-brand-green">Available sizes and prices</h2>
           <ul className="mt-3 divide-y rounded-xl border border-gray-100">
-            {pot.variants.map((variant) => <li key={variant.size} className="flex justify-between px-4 py-3 text-sm"><span>{variant.size}</span><span className="font-semibold text-brand-gold">{variant.price === null ? "Contact for price" : `₹${variant.price.toLocaleString("en-IN")}`}</span></li>)}
+            {pot.variants.map((variant) => <li id={`size-${encodeURIComponent(variant.size)}`} key={variant.size} className="flex justify-between px-4 py-3 text-sm"><span>{variant.size}</span><span className="font-semibold text-brand-gold">{variant.price === null ? "Contact for price" : `₹${variant.price.toLocaleString("en-IN")}`}</span></li>)}
           </ul>
         </div>
       </div>
       <section className="mt-10 max-w-sm" aria-label="Purchase options">
-        <ProductCard item={pot} includeSchema={false} />
+        <ProductCard item={pot} />
       </section>
     </article>
   );
