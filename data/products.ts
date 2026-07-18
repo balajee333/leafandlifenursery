@@ -481,31 +481,31 @@ export const pots: Pot[] = [
     { size: '8"', price: 99 },
     { size: '10"', price: 159 },
   ], colors: [{ hex: "#C65D3B" }] },
-  { id: "ll-pla013", code: "LL-PLA013", name: "Balcony Railing Planter", category: "plastic", image: "/images/pots/pot-011.jpg", variants: [{ size: "Standard", price: 500 }], colors: [{ hex: "#000000" }, { hex: "#22C55E" }, { hex: "#8B4513" }] },
-  { id: "ll-pla014", code: "LL-PLA014", name: "Hanging Pot", category: "plastic", image: "/images/pots/pot-012.jpg", variants: [
-    { size: "Small", price: 60 },
-    { size: "Large", price: 80 },
-  ], colors: [{ hex: "#000000" }] },
-  { id: "ll-pla015", code: "LL-PLA015", name: "Diamond Hanging Pot", category: "plastic", image: "/images/pots/pot-013.jpg", variants: [{ size: "Standard", price: 80 }], colors: [{ hex: "#A3A5A8" }, { hex: "#28B411" }, { hex: "#E50953" }, { hex: "#5D11B5" }, { hex: "#FFFFFF" }, { hex: "#212224" }] },
-  { id: "ll-pla016", code: "LL-PLA016", name: "Round Tray (Black)", category: "plastic", image: "/images/pots/pot-014.jpg", variants: [
+  { id: "ll-pla013", code: "LL-PLA013", name: "Round Tray (Black)", category: "plastic", image: "/images/pots/pot-014.jpg", variants: [
     { size: '6"', price: 20 },
     { size: '8"', price: 25 },
     { size: '10"', price: 35 },
   ], colors: [{ hex: "#000000" }] },
-  { id: "ll-pla017", code: "LL-PLA017", name: "Round Tray (Terracotta)", category: "plastic", image: "/images/pots/pot-015.jpg", variants: [
+  { id: "ll-pla014", code: "LL-PLA014", name: "Round Tray (Terracotta)", category: "plastic", image: "/images/pots/pot-015.jpg", variants: [
     { size: '6"', price: 25 },
     { size: '8"', price: 29 },
     { size: '10"', price: 45 },
   ], colors: [{ hex: "#C65D3B" }] },
-  { id: "ll-pla018", code: "LL-PLA018", name: "Square Tray (Black)", category: "plastic", image: "/images/pots/pot-016.jpg", variants: [
+  { id: "ll-pla015", code: "LL-PLA015", name: "Square Tray (Black)", category: "plastic", image: "/images/pots/pot-016.jpg", variants: [
     { size: '8"', price: 30 },
     { size: '10"', price: 40 },
     { size: '12"', price: 55 },
   ], colors: [{ hex: "#000000" }] },
-  { id: "ll-pla019", code: "LL-PLA019", name: "Square Tray (Terracotta)", category: "plastic", image: "/images/pots/pot-017.jpg", variants: [
+  { id: "ll-pla016", code: "LL-PLA016", name: "Square Tray (Terracotta)", category: "plastic", image: "/images/pots/pot-017.jpg", variants: [
     { size: '8"', price: 40 },
     { size: '10"', price: 50 },
   ], colors: [{ hex: "#C65D3B" }] },
+  { id: "ll-pla017", code: "LL-PLA017", name: "Balcony Railing Planter", category: "plastic", image: "/images/pots/pot-011.jpg", variants: [{ size: "Standard", price: 500 }], colors: [{ hex: "#000000" }, { hex: "#22C55E" }, { hex: "#8B4513" }] },
+  { id: "ll-pla018", code: "LL-PLA018", name: "Hanging Pot", category: "plastic", image: "/images/pots/pot-012.jpg", variants: [
+    { size: "Small", price: 60 },
+    { size: "Large", price: 80 },
+  ], colors: [{ hex: "#000000" }] },
+  { id: "ll-pla019", code: "LL-PLA019", name: "Diamond Hanging Pot", category: "plastic", image: "/images/pots/pot-013.jpg", variants: [{ size: "Standard", price: 80 }], colors: [{ hex: "#A3A5A8" }, { hex: "#28B411" }, { hex: "#E50953" }, { hex: "#5D11B5" }, { hex: "#FFFFFF" }, { hex: "#212224" }] },
   { id: "ll-pla020", code: "LL-PLA020", name: "Wave Pot", category: "plastic", image: "/images/pots/pot-018.jpg", variants: [{ size: '12"', price: 499 }], colors: [{ hex: "#779a67" }, { hex: "#FFFFFF" }, { hex: "#808080" }] },
   { id: "ll-pla021", code: "LL-PLA021", name: "Square Pot", category: "plastic", image: "/images/pots/pot-019.jpg", variants: [
     { size: '3"', price: null },
