@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useCart } from "@/components/CartContext";
+import ProductImageCarousel from "@/components/ProductImageCarousel";
 import type { Plant, Pot, PotVariant, PotColor } from "@/data/products";
-import { getColorName, getPotSlug } from "@/data/products";
+import { getColorName, getPotSlug, getPlantSlug } from "@/data/products";
 
 function formatPrice(price: number): string {
   return `₹${price.toLocaleString("en-IN")}`;
@@ -43,10 +45,12 @@ export default function ProductCard({
   onInvalidColorSelection,
   onColorSelected,
 }: ProductCardProps) {
+  const router = useRouter();
   const { addItem } = useCart();
   const isPot = "variants" in item;
   const pot = isPot ? (item as Pot) : null;
-  const productHref = pot ? `/pots/${getPotSlug(pot)}` : undefined;
+  const productHref = isPot ? `/pots/${getPotSlug(pot)}` : `/plants/${getPlantSlug(item as Plant)}`;
+  const images = "images" in item && item.images?.length ? item.images : [item.image];
   const [selectedSize, setSelectedSize] = useState(
     pot?.variants[0]?.size ?? ""
   );
@@ -105,31 +109,31 @@ export default function ProductCard({
 
   return (
     <div className="group overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-green/5">
-      {productHref ? (
-        <Link
-          href={productHref}
-          className="relative block aspect-square overflow-hidden bg-white"
-          aria-label={`View details for ${item.name}`}
-        >
+      <div
+        className="relative aspect-square overflow-hidden bg-white cursor-pointer"
+        onClick={() => {
+          if (productHref) router.push(productHref);
+          else if (onClick) onClick();
+        }}
+        aria-label={`View details for ${item.name}`}
+      >
+        {images.length > 1 ? (
+          <ProductImageCarousel
+            images={images}
+            alt={`${item.name} - ${isPot ? "Garden Pot" : "Indoor Plant"} | Leaf & Life Nursery Chennai`}
+            compact
+          />
+        ) : (
           <Image
             src={item.image}
-            alt={`${item.name} - Garden Pot | Leaf & Life Nursery Chennai`}
+            alt={`${item.name} - ${isPot ? "Garden Pot" : "Indoor Plant"} | Leaf & Life Nursery Chennai`}
+            loading={isPot ? "lazy" : "eager"}
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
           />
-        </Link>
-      ) : (
-        <div className="relative aspect-square cursor-pointer overflow-hidden bg-white" onClick={onClick}>
-        <Image
-          src={item.image}
-          alt={`${item.name} - ${isPot ? "Garden Pot" : "Indoor Plant"} | Leaf & Life Nursery Chennai`}
-          fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-        />
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="p-4">
         {productHref ? (

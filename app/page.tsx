@@ -86,6 +86,7 @@ export default function Home() {
           >
             <div className="relative h-64 sm:h-80 overflow-hidden">
               <Image
+                loading="eager"
                 src="/images/plants/monstera.jpg"
                 alt="Indoor Plants Collection - Leaf & Life Nursery Chennai"
                 fill
@@ -109,39 +110,8 @@ export default function Home() {
             </div>
           </Link>
           <Link
-            href="/plant-care"
-            className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow"
-          >
-            <div className="relative h-64 sm:h-80 overflow-hidden">
-              <Image
-                src="/images/plant-care/humidity.jpg"
-                alt="Plant Care and Nutrition Products - Leaf & Life Nursery Chennai"
-                fill
-                sizes="(max-width: 640px) 100vw, 50vw"
-                className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-brand-green">
-                Plant Care & Nutrition
-              </h3>
-              <p className="mt-1 text-sm text-gray-500">
-                Nutrients, sprays, and pest protection
-              </p>
-              <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-gold">
-                Explore plant care products
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </div>
-          </Link>
-
-
-          <Link
             href="/pots"
-            className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow"
-          >
+            className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow">
             <div className="relative h-64 sm:h-80 overflow-hidden">
               <Image
                 src="/images/pots/pot-028.jpg"
@@ -160,35 +130,6 @@ export default function Home() {
               </p>
               <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-gold">
                 Browse 59 pots & planters
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </div>
-          </Link>
-
-          <Link
-            href="/metal-stands"
-            className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow"
-          >
-            <div className="relative h-64 sm:h-80 overflow-hidden">
-              <Image
-                src="/images/stands/stand-002.jpg"
-                alt="Metal Stands"
-                fill
-                sizes="(max-width: 640px) 100vw, 33vw"
-                className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-brand-green">
-                Metal Stands
-              </h3>
-              <p className="mt-1 text-sm text-gray-500">
-                Stylish metal stands for your pots and planters
-              </p>
-              <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-gold">
-                Browse {metalStandCount} stands
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -223,6 +164,63 @@ export default function Home() {
               </span>
             </div>
           </Link>
+          <Link
+            href="/plant-care"
+            className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow"
+          >
+            <div className="relative h-64 sm:h-80 overflow-hidden">
+              <Image
+                src="/images/plant-care/humidity.jpg"
+                alt="Plant Care and Nutrition Products - Leaf & Life Nursery Chennai"
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-brand-green">
+                Plant Care & Nutrition
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">
+                Nutrients, sprays, and pest protection
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-gold">
+                Explore plant care products
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+          <Link
+            href="/metal-stands"
+            className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow"
+          >
+            <div className="relative h-64 sm:h-80 overflow-hidden">
+              <Image
+                src="/images/stands/stand-002.jpg"
+                alt="Metal Stands"
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-brand-green">
+                Metal Stands
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">
+                Stylish metal stands for your pots and planters
+              </p>
+              <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-gold">
+                Browse {metalStandCount} stands
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+          
         </div>
       </section>
 

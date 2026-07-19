@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ProductCard from "@/components/ProductCard";
+import PurchasePanel from "@/components/PurchasePanel";
+import ProductImageCarousel from "@/components/ProductImageCarousel";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import { getPotBySlug, getPotSlug, pots } from "@/data/products";
 
@@ -41,6 +41,8 @@ export default async function PotDetailPage({ params }: Props) {
   if (!pot) notFound();
 
   const prices = pot.variants.flatMap((variant) => variant.price === null ? [] : [variant.price]);
+  const images = pot.images ?? [pot.image];
+
   return (
     <article className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
       <ProductJsonLd product={pot} />
@@ -50,24 +52,21 @@ export default async function PotDetailPage({ params }: Props) {
         <span>{pot.name}</span>
       </nav>
       <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
-        <div className="relative aspect-square rounded-3xl bg-white shadow-sm">
-          <Image src={pot.image} alt={`${pot.name} - Garden Pot | Leaf & Life Nursery Chennai`} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-contain p-8" />
-        </div>
-        <div>
-          <p className="text-sm font-medium uppercase tracking-wide text-brand-gold">{pot.category.replace(/-/g, " ")} planter</p>
-          <h1 className="mt-2 text-3xl font-bold text-brand-green sm:text-4xl">{pot.name}</h1>
-          <p className="mt-2 text-sm text-gray-500">Product code: {pot.code}</p>
-          <p className="mt-5 text-2xl font-bold text-brand-gold">{priceDisplay(prices)}</p>
-          <p className="mt-5 leading-relaxed text-gray-600">{pot.description ?? `${pot.name} is available from Leaf & Life Nursery in a selection of sizes${pot.colors?.length ? " and colours" : ""}.`}</p>
-          <h2 className="mt-7 text-lg font-semibold text-brand-green">Available sizes and prices</h2>
-          <ul className="mt-3 divide-y rounded-xl border border-gray-100">
-            {pot.variants.map((variant) => <li id={`size-${encodeURIComponent(variant.size)}`} key={variant.size} className="flex justify-between px-4 py-3 text-sm"><span>{variant.size}</span><span className="font-semibold text-brand-gold">{variant.price === null ? "Contact for price" : `₹${variant.price.toLocaleString("en-IN")}`}</span></li>)}
-          </ul>
+        <ProductImageCarousel images={images} alt={`${pot.name} - Garden Pot | Leaf & Life Nursery Chennai`} />
+        <div className="space-y-6">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-wide text-brand-gold">{pot.category.replace(/-/g, " ")} planter</p>
+            <h1 className="mt-2 text-3xl font-bold text-brand-green sm:text-4xl">{pot.name}</h1>
+            <p className="mt-2 text-sm text-gray-500">Product code: {pot.code}</p>
+            <p className="mt-5 text-2xl font-bold text-brand-gold">{priceDisplay(prices)}</p>
+            <p className="mt-5 leading-relaxed text-gray-600">{pot.description ?? `${pot.name} is available from Leaf & Life Nursery in a selection of sizes${pot.colors?.length ? " and colours" : ""}.`}</p>
+          </div>
+
+          <div className="lg:mt-4">
+            <PurchasePanel item={pot} />
+          </div>
         </div>
       </div>
-      <section className="mt-10 max-w-sm" aria-label="Purchase options">
-        <ProductCard item={pot} />
-      </section>
     </article>
   );
 }

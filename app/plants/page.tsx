@@ -5,11 +5,9 @@ import Link from "next/link";
 import { plants, PLANT_CATEGORIES, type Plant } from "@/data/products";
 import CategoryFilter from "@/components/CategoryFilter";
 import ProductCard from "@/components/ProductCard";
-import ProductModal from "@/components/ProductModal";
 
 export default function PlantsPage() {
   const [category, setCategory] = useState<string | null>(null);
-  const [selected, setSelected] = useState<Plant | null>(null);
   const [search, setSearch] = useState("");
 
   const filtered = plants.filter((p) => {
@@ -112,18 +110,11 @@ export default function PlantsPage() {
       ) : (
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {filtered.map((plant) => (
-            <ProductCard
-              key={plant.id}
-              item={plant}
-              onClick={() => setSelected(plant)}
-            />
+            <ProductCard key={plant.id} item={plant} />
           ))}
         </div>
       )}
 
-      {selected && (
-        <ProductModal item={selected} onClose={() => setSelected(null)} />
-      )}
     </div>
   );
 }

@@ -12,6 +12,7 @@ export interface Plant {
   name: string;
   category?: PlantCategory;
   image: string;
+  images?: string[];
   price: number | null;
   actualPrice?: number | null;
   quantity?: string;
@@ -97,6 +98,7 @@ export interface Pot {
   name: string;
   category: PotCategory;
   image: string;
+  images?: string[];
   variants: PotVariant[];
   colors?: PotColor[];
   description?: string;
@@ -124,6 +126,17 @@ export function getPotSlug(pot: Pot): string {
 
 export function getPotBySlug(slug: string): Pot | undefined {
   return pots.find((pot) => getPotSlug(pot) === slug);
+}
+
+export function getPlantSlug(plant: Plant): string {
+  const baseSlug = slugify(plant.name);
+  return plants.filter((candidate) => slugify(candidate.name) === baseSlug).length > 1
+    ? `${baseSlug}-${plant.id}`
+    : baseSlug;
+}
+
+export function getPlantBySlug(slug: string): Plant | undefined {
+  return plants.find((plant) => getPlantSlug(plant) === slug);
 }
 
 export const PLANT_CATEGORIES: { value: PlantCategory; label: string }[] = [
@@ -154,7 +167,11 @@ export const plants: Plant[] = [
     id: "snake-plant",
     name: "Snake Plant",
     category: "indoor",
-    image: "/images/plants/snake-plant.jpg",
+    image: "/images/plants/snake-plant-1.jpeg",
+    images: [
+      "/images/plants/snake-plant-1.jpeg",
+      "/images/plants/snake-plant-2.jpeg",
+    ],
     price: 600,
   },
   {
@@ -175,14 +192,18 @@ export const plants: Plant[] = [
     id: "peace-lily",
     name: "Peace Lily",
     category: "indoor",
-    image: "/images/plants/peace-lily.jpg",
+    image: "/images/plants/peace-lily.jpeg",
+    images: [
+      "/images/plants/peace-lily-1.jpeg",
+      "/images/plants/peace-lily-2.jpeg"
+    ],
     price: 500,
   },
   {
     id: "anthurium-red",
     name: "Anthurium Red",
     category: "flowering",
-    image: "/images/plants/anthurium-red.jpg",
+    image: "/images/plants/anthurium-red.jpeg",
     price: 500,
   },
   {
@@ -193,17 +214,30 @@ export const plants: Plant[] = [
     price: 120,
   },
   {
-    id: "aglonema",
-    name: "Aglonema Lipstic",
+    id: "calathea",
+    name: "Calathea",
     category: "indoor",
-    image: "/images/plants/aglonema.jpg",
+    image: "/images/plants/calathea.jpg",
+    price: 500,
+  },
+  {
+    id: "aglonema",
+    name: "Aglonema",
+    category: "indoor",
+    image: "/images/plants/aglonema-1.jpg",
+    images: [
+      "/images/plants/aglonema-1.jpg",
+      "/images/plants/aglonema-2.jpg",
+      "/images/plants/aglonema-3.jpg",
+      "/images/plants/aglonema-4.jpg"
+    ],
     price: 400,
   },
   {
     id: "zz-plant",
     name: "ZZ Plant",
     category: "indoor",
-    image: "/images/plants/zz-plant.jpg",
+    image: "/images/plants/zz-plant.jpeg",
     price: 350,
   },
   {
@@ -252,7 +286,7 @@ export const plants: Plant[] = [
     id: "syngonium",
     name: "Syngonium",
     category: "indoor",
-    image: "/images/plants/syngonium.jpg",
+    image: "/images/plants/syngonium.jpeg",
     price: 200,
   },
   {
@@ -295,7 +329,7 @@ export const plants: Plant[] = [
     id: "philodendron-moonlight",
     name: "Philodendron Moonlight",
     category: "indoor",
-    image: "/images/plants/philodendron-moonlight.jpg",
+    image: "/images/plants/philodendron-moonlight.jpeg",
     price: 100,
   },
   {
