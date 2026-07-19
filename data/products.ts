@@ -192,7 +192,7 @@ export const plants: Plant[] = [
     id: "peace-lily",
     name: "Peace Lily",
     category: "indoor",
-    image: "/images/plants/peace-lily.jpeg",
+    image: "/images/plants/peace-lily-1.jpeg",
     images: [
       "/images/plants/peace-lily-1.jpeg",
       "/images/plants/peace-lily-2.jpeg"
