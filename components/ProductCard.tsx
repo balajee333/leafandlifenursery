@@ -49,7 +49,9 @@ export default function ProductCard({
   const { addItem } = useCart();
   const isPot = "variants" in item;
   const pot = isPot ? (item as Pot) : null;
-  const productHref = isPot ? `/pots/${getPotSlug(pot)}` : `/plants/${getPlantSlug(item as Plant)}`;
+  const productHref = isPot
+    ? `/pots/${getPotSlug(item as Pot)}`
+    : `/plants/${getPlantSlug(item as Plant)}`;
   const images = "images" in item && item.images?.length ? item.images : [item.image];
   const [selectedSize, setSelectedSize] = useState(
     pot?.variants[0]?.size ?? ""
